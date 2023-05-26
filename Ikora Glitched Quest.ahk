@@ -1,33 +1,38 @@
-﻿;
-CoordMode, Mouse, Screen
+﻿
 
-^q::
+    CoordMode "Mouse", "Screen"
+
+    ^q::
     {
-        Loop, 50
+        Sleep 3000
+        loop 50
         {
-            MouseMove, 1555, 870, 10
-            Loop, 10
-            {
-                Sleep, 567
-                MouseClick, Left
-                Sleep, 1274
-            }
-            Sleep, 1000
-            Send, {F1}
-            Sleep, 1000
-            MouseMove, 1860, 530, 10
-            MouseMove, 2004, 524, 10
-            Loop, 10
-            {
-                Send, {f Down}
-                sleep 4000
-                Send, {f Up}
-                sleep 1000
-            }
-            Sleep, 1200
-            MouseMove, 2400, 1390, 10
-            MouseClick, Left
-            Sleep, 1123
+            Sleep 1000
+            MouseMove 1555, 870, 10, "Screen"
+            Sleep 800
+            loop 10
+                {
+                    Sleep 1000
+                    MouseClick "left", 1555, 870, 1, 10,,"Screen"
+                    Sleep 1000
+                }
+            Sleep 1200
+            Send "{F1}"
+            Sleep 1500
+            MouseMove 1860, 530, 10, "Screen"
+            MouseMove 2000, 520, 10, "Screen"
+            Loop 10
+                {
+                    Sleep 500
+                    Send "{f Down}"
+                    Sleep 4000
+                    Send "{f Up}"
+                    Sleep 500
+                }
+            Sleep 1500
+            MouseMove 2400, 1390, 10, "Screen"
+            MouseClick "left", 2400, 1390, 1,,,"Screen"
+            Sleep 1500
         }
-        Return
+        return
     }
